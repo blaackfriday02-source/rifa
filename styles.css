@@ -143,68 +143,11 @@ body{
 /* CONTENT */
 .content{ padding:12px 12px 18px; }
 
-.countdown{
-  display:flex;
-  justify-content:center;
-  margin:10px 0 0;
-  padding:0 12px;
-}
-
-.countdown--below{
-  margin:12px 0 0;
-}
-
-.countdown__badge--new{
-  width:100%;
-  max-width:320px;
-  border-radius:16px;
-  padding:10px 12px;
-  background:linear-gradient(180deg, rgba(15,122,74,.16), rgba(15,122,74,.06));
-  border:1px solid rgba(15,122,74,.28);
-  color:var(--green);
-  text-align:center;
-  box-shadow:0 10px 20px rgba(0,0,0,.06);
-}
-
-.countdown__top{
-  display:flex;
-  align-items:baseline;
-  justify-content:center;
-  gap:8px;
-}
-
-.countdown__label{
-  font-weight:800;
-  font-size:13px;
-  letter-spacing:.4px;
-}
-
-.countdown__time{
-  font-weight:900;
-  font-size:18px;
-  letter-spacing:1px;
-}
-
-.countdown__bottom{
-  margin-top:6px;
-  font-weight:900;
-  font-size:12px;
-  letter-spacing:1.8px;
-}
-
-.countdown__line1{ font-size:13px; }
-.countdown__line2{
-  display:block;
-  margin-top:5px;
-  font-weight:900;
-  letter-spacing:1px;
-  font-size:12px;
-}
 
 /* CARDS */
 .card{
   background:var(--card);
-  border-radius:10px;
+  border-radius:6px;
   overflow:hidden;
   box-shadow:0 10px 22px rgba(0,0,0,.06);
   margin-bottom:12px;
@@ -302,9 +245,11 @@ body{
 /* Buttons */
 .btnRow{
   display:flex;
+  flex-direction:column; /* UM EMBAIXO DO OUTRO */
   gap:10px;
   margin-top:12px;
 }
+
 .btn{
   border:0;
   border-radius:8px;
@@ -316,7 +261,11 @@ body{
 }
 .btn--green{ background:var(--green); color:#fff; }
 .btn--green:active{ background:var(--green2); }
-.btn--gray{ background:#7b7f86; color:#fff; }
+.btn--gray{
+  background:#cfd2d8;
+}
+
+
 .lockIcon{ margin-right:6px; }
 
 /* PROMO */
@@ -334,7 +283,7 @@ body{
   color:#fff;
   display:inline-block;
   padding:10px 14px;
-  border-radius:14px;
+  border-radius:6px;
   font-weight:900;
 }
 
@@ -349,14 +298,14 @@ body{
 
 /* Section Head */
 .sectionHead{ padding:14px 14px 10px; }
-.sectionHead__title{ font-weight:900; font-size:22px; }
+.sectionHead__title{ font-weight:900; font-size:21px; }
 .sectionHead__sub{ margin-top:3px; color:var(--muted); font-weight:700; }
 
 .hintBox{
   margin:0 14px 12px;
   background:var(--soft);
   border:1px solid var(--line);
-  border-radius:16px;
+  border-radius:6px;
   padding:14px;
   text-align:center;
   font-weight:800;
@@ -429,14 +378,14 @@ body{
   align-items:center;
   background:#fff;
   border:1px solid var(--line);
-  border-radius:10px;
+  border-radius:6px;
   padding:6px;
   width:44%;
   min-width:160px;
 }
 .stepper__btn{
   width:44px; height:44px;
-  border-radius:8px;
+  border-radius:6px;
   border:1px solid #e1e3ea;
   background:#fff;
   font-size:18px;
@@ -474,11 +423,12 @@ body{
 .btnBottom{ font-size:13px; opacity:.92; font-weight:800; margin-top:3px; }
 
 .limits{
-  padding:0 14px 14px;
-  color:var(--muted);
-  font-weight:700;
+  padding:8px 14px 14px;
+  color:#7a7c82;        /* cinza mais suave */
+  font-weight:500;     /* MAIS FINO */
   font-size:13px;
-  line-height:1.4;
+  line-height:1.5;
+  text-align:center;   /* CENTRALIZADO */
 }
 
 /* Accordion */
@@ -632,4 +582,152 @@ body{
 @media (min-width: 700px){
   body{ display:flex; justify-content:center; }
   .phone{ border-left:1px solid rgba(0,0,0,.06); border-right:1px solid rgba(0,0,0,.06); }
+}
+
+/* =========================================================
+   PATCH: PACKS UNIFORMES (menores), fonte mais fina e sem estourar
+   Cole no FINAL do styles.css
+   ========================================================= */
+
+/* Grid mais consistente no mobile */
+.grid{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;                 /* mais juntinho */
+  padding: 0 12px 12px;     /* menos respiro lateral */
+}
+
+/* Packs: tamanho uniforme e mais “clean” */
+.pack{
+  min-width: 0;
+  min-height: 78px;         /* menor e igual pra todos */
+  padding: 10px 8px;
+  border-radius: 8px;       /* mais quadrado */
+  overflow: hidden;
+  background: #dedede;      /* uniforme */
+}
+
+/* Remover aquela “cara de grosso” */
+.pack__big{
+  font-size: clamp(22px, 7.2vw, 30px);
+  line-height: 1;
+  font-weight: 700;         /* mais fino que 900 */
+  letter-spacing: .2px;
+}
+
+/* “SELECIONAR” mais fino e menor */
+.pack__small{
+  margin-top: 6px;
+  font-size: clamp(9px, 2.4vw, 11px);
+  font-weight: 600;         /* mais fino */
+  letter-spacing: .8px;
+  opacity: .75;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Popular: borda mais elegante e sem aumentar o card */
+.pack--popular{
+  outline: 2px solid var(--green);
+  background: #e9efe9;
+  padding-top: 20px;        /* espaço pro tag sem esmagar o +300 */
+}
+
+/* Tag “Mais Popular” perfeitamente encaixada e sem vazar */
+.pack__tag{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 20px;             /* menor */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 8px;
+  font-size: clamp(9px, 2.2vw, 10px);
+  font-weight: 700;         /* mais fino */
+  letter-spacing: .9px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  border-radius: 8px 8px 4px 4px;
+}
+
+/* Se a tela for bem estreita, cai pra 2 colunas (fica lindo e alinhado) */
+@media (max-width: 360px){
+  .grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .pack{
+    min-height: 80px;
+  }
+}
+
+/* Deixar o botão Promo mais quadrado e alinhado */
+.promo__pill{
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+  font-weight: 700;         /* mais fino */
+  letter-spacing: .3px;
+}
+/* ===== Cabeçalhos igual ao print (inline, sub menor e cinza) ===== */
+
+.sectionHead{
+  padding: 14px 14px 10px;
+}
+
+.sectionHead--inline{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  flex-wrap:wrap;          /* se faltar espaço, quebra bonito */
+}
+
+.sectionHead__title{
+  font-weight:900;
+  font-size:21px;          /* mantém destaque */
+}
+
+.sectionHead__sub{
+  font-size:14px;          /* menor que antes */
+  color:var(--muted);
+  font-weight:600;         /* mais fino */
+  margin-top:0;            /* tira o espaçamento que joga pra baixo */
+}
+
+/* Promo: "Compre mais barato!" menor */
+.promo__sub{
+  font-size:14px;          /* menor */
+  font-weight:600;         /* mais fino */
+  color:var(--muted);
+}
+
+/* ===== Piscar branco (flash) no botão COMPRAR AGORA ===== */
+
+@keyframes flashWhite {
+  0% {
+    background: var(--green);
+    color: #fff;
+  }
+  45% {
+    background: #ffffff;
+    color: var(--green);
+  }
+  55% {
+    background: #ffffff;
+    color: var(--green);
+  }
+  100% {
+    background: var(--green);
+    color: #fff;
+  }
+}
+
+#btnComprarAgora{
+  animation: flashWhite 1.6s infinite;
 }
