@@ -204,7 +204,7 @@ body{
 /* CARDS */
 .card{
   background:var(--card);
-  border-radius:18px;
+  border-radius:10px;
   overflow:hidden;
   box-shadow:0 10px 22px rgba(0,0,0,.06);
   margin-bottom:12px;
@@ -307,7 +307,7 @@ body{
 }
 .btn{
   border:0;
-  border-radius:16px;
+  border-radius:8px;
   padding:14px 14px;
   font-weight:900;
   letter-spacing:.5px;
@@ -373,7 +373,7 @@ body{
 .pack{
   border:0;
   background:#d8d8d8;
-  border-radius:14px;
+  border-radius:6px;
   padding:12px 10px;
   text-align:center;
   cursor:pointer;
@@ -410,7 +410,7 @@ body{
   font-weight:900;
   font-size:11px;
   letter-spacing:1px;
-  border-radius:14px 14px 10px 10px; /* encaixa no topo certinho */
+  border-radius:8px 8px 4px 4px; /* encaixa no topo certinho */
 }
 .pack--popular{
   padding-top:18px; /* dá espaço pro tag em cima sem apertar o +300 */
@@ -429,14 +429,14 @@ body{
   align-items:center;
   background:#fff;
   border:1px solid var(--line);
-  border-radius:16px;
+  border-radius:10px;
   padding:6px;
   width:44%;
   min-width:160px;
 }
 .stepper__btn{
   width:44px; height:44px;
-  border-radius:12px;
+  border-radius:8px;
   border:1px solid #e1e3ea;
   background:#fff;
   font-size:18px;
