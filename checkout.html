@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Checkout - Rifa Premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <div class="phone">
+    <header class="topbar">
+      <button class="iconbtn" onclick="history.back()" aria-label="Voltar">←</button>
+
+      <div class="brand">
+        <div class="brand__logo">CHECKOUT</div>
+        <div class="brand__sub">PAGAMENTO PIX</div>
+      </div>
+
+      <button class="iconbtn" onclick="window.location.href='./index.html'" aria-label="Home">⌂</button>
+    </header>
+
+    <main class="content">
+      <section class="card">
+        <div class="card__body">
+          <div class="subtitle" style="margin-top:0;">
+            Você está adquirindo <span id="xCotas">0</span> cotas da ação
+          </div>
+          <div class="mini" id="topHint">seus números serão gerados após concluir a compra</div>
+
+          <div class="metaRow">
+            <div class="metaTag">Valor por número: <b>R$ 0,07</b></div>
+            <div class="metaTag">Status: <b id="statusText">Pendente</b></div>
+          </div>
+
+          <div style="height:10px"></div>
+
+          <div class="buyBar" style="padding:0; margin-top:8px;">
+            <div class="stepper" style="width:46%;">
+              <button class="stepper__btn" id="minusBtn" type="button">−</button>
+              <input class="stepper__value" id="qtyInput" inputmode="numeric" value="50" />
+              <button class="stepper__btn" id="plusBtn" type="button">+</button>
+            </div>
+
+            <button class="btn btn--green btn--big" id="btnCriarPedido" type="button">
+              <span class="arrowBox">↗</span>
+              <span class="btnCol">
+                <span class="btnTop" id="btnTitle">Criar pedido</span>
+                <span class="btnBottom" id="totalText">R$ 3,50</span>
+              </span>
+            </button>
+          </div>
+
+          <div class="limits" style="padding:10px 0 0;">
+            <div>Mínimo: <b>50</b> | Máximo: <b>10.000</b></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card card--flat">
+        <div class="card__body">
+          <div class="sectionHead__title" style="padding:0; margin:0; font-size:18px;">Cadastro</div>
+          <div class="mini">preencha para vincular seus títulos</div>
+
+          <div style="height:10px"></div>
+
+          <label class="field">
+            <span>Nome completo</span>
+            <input id="name" placeholder="Seu nome" />
+          </label>
+
+          <label class="field">
+            <span>Telefone</span>
+            <input id="phone" placeholder="(00) 00000-0000" />
+          </label>
+
+          <label class="field">
+            <span>CPF</span>
+            <input id="cpf" placeholder="000.000.000-00" />
+          </label>
+
+          <button class="btn btn--gray" id="btnIrKirvano" type="button">Ir para pagamento (Kirvano)</button>
+
+          <div class="mini" style="margin-top:10px;">
+            (Na demo, esse botão só simula. No real, você manda pro checkout da Kirvano.)
+          </div>
+        </div>
+      </section>
+
+      <section class="card card--flat" id="pixBox" hidden>
+        <div class="card__body">
+          <div class="sectionHead__title" style="padding:0; margin:0; font-size:18px;">Pedido criado</div>
+          <div class="mini">aguardando confirmação do pagamento</div>
+
+          <div class="metaRow" style="margin-top:10px;">
+            <div class="metaTag">Pedido: <b id="orderId">—</b></div>
+            <div class="metaTag">Qtd: <b id="orderQty">—</b></div>
+            <div class="metaTag">Total: <b id="orderAmount">—</b></div>
+          </div>
+
+          <div style="height:10px"></div>
+
+          <div class="hintBox" style="margin:0;">
+            PIX (placeholder): <b id="pixKey">CHAVE-PIX-EXEMPLO</b>
+          </div>
+
+          <div style="height:10px"></div>
+
+          <button class="btn btn--green" id="btnSimularPagamento" type="button">Simular pagamento confirmado</button>
+
+          <div class="mini" style="margin-top:10px;">
+            Quando confirmar, seus números são gerados automaticamente e ficam disponíveis no “Login”.
+          </div>
+        </div>
+      </section>
+
+      <section class="card card--flat" id="numbersBox" hidden>
+        <div class="card__body">
+          <div class="sectionHead__title" style="padding:0; margin:0; font-size:18px;">Números gerados</div>
+          <div class="mini">guarde: você também consulta pelo Login</div>
+
+          <div style="height:10px"></div>
+
+          <div class="myTitles__list" id="numbersList"></div>
+
+          <div style="height:10px"></div>
+          <button class="btn btn--green" type="button" onclick="window.location.href='./index.html'">Voltar para a rifa</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./checkout.js"></script>
+</body>
+</html>
