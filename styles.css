@@ -731,3 +731,67 @@ body{
 #btnComprarAgora{
   animation: flashWhite 1.6s infinite;
 }
+
+
+/* ===== Participar igual ao print ===== */
+
+/* botão mais baixo e com menos padding */
+.btn--big{
+  padding:12px 10px;      /* menor */
+  border-radius:10px;     /* mais quadrado */
+  gap:10px;
+}
+
+/* caixinha da seta: fundo branco e ícone verde */
+.arrowBox{
+  width:44px;
+  height:44px;
+  border-radius:10px;
+  background:#fff;        /* IGUAL ao print */
+  color:var(--green);     /* seta verde */
+  font-size:20px;
+  font-weight:900;
+}
+
+/* textos do botão */
+.btnCol{
+  align-items:flex-start;
+  line-height:1.05;
+}
+
+.btnTop{
+  font-size:18px;
+  font-weight:800;        /* forte mas não “estourado” */
+  letter-spacing:0;       /* sem espaçar demais */
+}
+
+.btnBottom{
+  font-size:13px;
+  font-weight:600;        /* mais fino */
+  opacity:0.75;           /* MAIS CLARO */
+  margin-top:3px;
+}
+/* buyBar mais justinha igual print */
+.buyBar{
+  gap:10px;
+  padding:0 14px 8px;
+}
+
+/* stepper mais compacto */
+.stepper{
+  border-radius:12px;
+  padding:6px;
+}
+
+.stepper__btn{
+  width:42px;
+  height:42px;
+  border-radius:10px;
+  font-size:18px;
+  font-weight:800;
+}
+
+.stepper__value{
+  font-size:18px;
+  font-weight:800;
+}
